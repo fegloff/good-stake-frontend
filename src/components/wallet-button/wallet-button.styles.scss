@@ -1,0 +1,17 @@
+.wallet-button {
+  button {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50px;
+    padding: 1em 3em 1em;
+    
+    border: 0.5px solid #dbd8d8;
+    width: 20em;
+    margin-bottom: 2em;
+    
+    img {
+      max-width: 10em;
+      max-height: 2em;
+    }
+  }
+}

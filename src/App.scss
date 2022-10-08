@@ -1,0 +1,32 @@
+@import "./assets/scss/variables";
+
+.app-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url('./assets/imgs/Background (mountains).svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 300;
+  white-space: pre-line;
+  color: $text-primary;
+}
+
+img {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
