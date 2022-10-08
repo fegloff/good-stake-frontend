@@ -5,7 +5,8 @@
   min-width: 100vw;
   background-image: url('./assets/imgs/Background (mountains).svg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center bottom;
 }
 
 h1,
@@ -29,4 +30,34 @@ img {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
+}
+
+input {
+  text-align: center;
+  padding: 0.7em 2em 0.7em;
+  border: 0.5px solid $gray;
+  border-radius: 50px;
+  color: $blue;
+  font-size: 1rem;
+  width: 100%;
+}
+
+input:read-only {
+  color: $green !important;
+  border: 1px solid $green;
+}
+
+.good-button {
+  cursor: pointer;
+  background-color: $blue;
+  color: white;
+  border-radius: 50px;
+  border: 0;
+  padding: 0.5em 2.5em 0.5em;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.good-button:hover {
+  background-color: $blue-light;
 }

@@ -1,0 +1,36 @@
+.home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 3em 4em 3em;
+    border-radius: 1em;
+
+    h2 {
+      font-weight: 600;
+    }
+
+    &--logo {
+      img {
+        height: 8em;
+      }
+    }
+
+    &--buttons {
+      padding-top: 2.5em;
+    }
+  }
+}

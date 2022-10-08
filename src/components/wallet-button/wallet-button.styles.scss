@@ -1,3 +1,5 @@
+@import "../../assets/scss/variables";
+
 .wallet-button {
   button {
     cursor: pointer;
@@ -5,7 +7,7 @@
     border-radius: 50px;
     padding: 1em 3em 1em;
     
-    border: 0.5px solid #dbd8d8;
+    border: 0.5px solid $gray;
     width: 20em;
     margin-bottom: 2em;
     
