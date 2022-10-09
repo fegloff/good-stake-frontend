@@ -61,3 +61,8 @@ input:read-only {
 .good-button:hover {
   background-color: $blue-light;
 }
+
+.main-container {
+  width: $main-container-width !important;
+  height: $main-container-height !important;
+}

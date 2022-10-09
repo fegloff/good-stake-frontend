@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
 
-const Private = () => {
+const Institutions = () => {
   const { account, active } = useWeb3React();
   const navigate = useNavigate();
   console.log('account',account);
@@ -16,4 +16,4 @@ const Private = () => {
   )
 }
 
-export default Private;
+export default Institutions;

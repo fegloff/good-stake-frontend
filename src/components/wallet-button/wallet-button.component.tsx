@@ -5,17 +5,19 @@ import { useNavigate } from "react-router-dom";
 import "./wallet-button.styles.scss";
 
 type WalletButtonProps = {
+  to: string;
   logo: any;
   connector: any;
 };
-const WalletButton = ({ logo, connector }: WalletButtonProps) => {
+
+const WalletButton = ({ logo, connector, to }: WalletButtonProps) => {
   const { activate, deactivate, active, account } = useWeb3React();
   const navigate = useNavigate();
 
   const handleClick = () => {
     if (!active) {
-      activate(connector.injected, (error) => {
-        console.log(error.toString());
+      activate(connector, (error) => {
+        console.log('ERRORR',error.toString());
       });
     } else {
       deactivate();
@@ -24,7 +26,7 @@ const WalletButton = ({ logo, connector }: WalletButtonProps) => {
 
   useEffect(() => {
     if (active && account) {
-      navigate("stake/");
+      navigate(to);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, account]);

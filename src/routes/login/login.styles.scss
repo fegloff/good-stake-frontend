@@ -1,3 +1,5 @@
+@import "../../assets/scss/variables";
+
 .login {
   height: 100vh;
   display: flex;
@@ -7,6 +9,8 @@
   align-items: center;
 
   &__wallet {
+    width: 25em;
+    height: 30em;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -27,7 +31,45 @@
     }
 
     &--buttons {
+      display: flex;
+      flex-direction: row;
+      align-content: space-around;
+      justify-content: space-around;
       padding-top: 2.5em;
     }
+  }
+}
+
+.login-button {
+  color: $blue;
+  cursor: pointer;
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    border: 1px solid $gray;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    font-size: 3rem;
+    margin-bottom: 0.2em;
+  }
+}
+
+.login-button:hover {
+  color: $green !important;
+}
+
+.connect-wallet {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: space-around;
+ 
+  &__buttons {
+    padding-top: 2.5em;
+
   }
 }

@@ -5,16 +5,20 @@ import { WalletLinkConnector } from "@web3-react/walletlink-connector";
 /**
  * Array of supported Chains
  */
+const supportedChainIds = [1, 3, 4, 5, 42];
+
 const injected = new InjectedConnector({
-  supportedChainIds: [1, 3, 4, 5, 42]
+  supportedChainIds
+});
+
+const coinbaseWallet = new WalletLinkConnector({
+  url: `${process.env.REACT_APP_INFURA_API_KEY}${process.env.REACT_APP_INFURA_API_KEY}`,
+  appName: "GoodStake",
+  supportedChainIds
 });
 
 export const connectors = {
-  injected: injected
+  injected: injected,
+  coinbase: coinbaseWallet
 }
 
-// const CoinbaseWallet = new WalletLinkConnector({
-//   url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-//   appName: "Web3-react Demo",
-//   supportedChainIds: [1, 3, 4, 5, 42],
-//  });

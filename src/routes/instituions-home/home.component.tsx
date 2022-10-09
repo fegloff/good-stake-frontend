@@ -6,12 +6,12 @@ import { truncateAddressString } from "../../utils/web3/utils";
 
 import './home.styles.scss';
 
-const Home = () => {
+const InstitutionsHome = () => {
   const { account } = useWeb3React();
   
   return (
     <div className='home'>
-      <div className='home__content'>
+      <div className='home__content main-container'>
         <FullLogo />
         <h2>Welcome</h2>
         <h4>Your contribution is part of the growth of our country</h4>
@@ -22,4 +22,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default InstitutionsHome;
