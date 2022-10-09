@@ -57,7 +57,7 @@ const Staking = () => {
 
   return (
     <div className="staking">
-      {!result ? (
+      {result ? (
         <>
         <CurrencyInput
         id="input-example"
@@ -80,9 +80,9 @@ const Staking = () => {
       </>
       ) : (
         <div className='staking__success'>
-          <h2>Success!</h2>
-          <h4>Your stake will keep helping Society achieve its goals</h4>
-          <button className='good-button' onClick={newStake}>Stake new amount</button>
+          <h2>Successful staking!</h2>
+          <h4>Your Staking will keep getting closer to Institutions and Society.</h4>
+          <button className='good-button' onClick={newStake}>New Staking</button>
         </div>
       )}
     </div>

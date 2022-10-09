@@ -20,7 +20,6 @@ const HumansHome = () => {
           <>
             <h2>You've got rewards!</h2>
             <input value={truncateAddressString(account!, 15)} readOnly />
-            <Staking />
           </>
         ) : (
           <HumanVerification setRegistered={setRegistered} />
