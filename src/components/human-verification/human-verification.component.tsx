@@ -1,17 +1,34 @@
 import { useWeb3React } from "@web3-react/core";
 import { WorldIDWidget } from "@worldcoin/id";
+import { useState } from "react";
+import { register } from "../../utils/web3/contracts/register.contract";
 
 import './human-verification.styles.scss';
 
 type HumanVerificationProps = {
   setRegistered : any
 }
+
+type validationErrorType = {
+  code: string; // "INSUFFICIENT_FUNDS"
+  error?: any;
+  method?: string; // "estimateGas"
+  reason?: string; //"insufficient funds for intrinsic transaction cost"
+  transaction?: any;
+  message?: string;
+  stack?: string;
+};
+
 const HumanVerification = ({ setRegistered } : HumanVerificationProps) => {
+  const [validationError, setValidationError] = useState<validationErrorType>({
+    code: "",
+  });
+  const [result, setResult] = useState(false);
   const { account } = useWeb3React();
   
   const verificationSuccess = (proof: any) => {
     console.log(proof);
-    // call contract function.
+    register(account,proof.nullifier_hash,setResult,setValidationError);
     setRegistered(true);
   }
 

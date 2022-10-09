@@ -39,15 +39,15 @@ const Staking = () => {
   });
   const [result, setResult] = useState(false);
   const { account } = useWeb3React();
-  
+
   const stakeAmount = async () => {
     await stake(account, amount, setResult, setValidationError);
   };
 
   const newStake = () => {
-    setAmount('');
+    setAmount("");
     setResult(false);
-  }
+  };
 
   useEffect(() => {
     if (!validationError.code && result) {
@@ -57,32 +57,33 @@ const Staking = () => {
 
   return (
     <div className="staking">
-      {result ? (
+      {!result ? (
         <>
-        <CurrencyInput
-        id="input-example"
-        name="input-name"
-        placeholder="How much do you want to contribute"
-        value={amount}
-        //defaultValue={1000}
-        decimalsLimit={18}
-        suffix=" ETH"
-        onValueChange={(value, name) => setAmount(value!)}
-      />
-      <div className="staking__button">
-        <button className="good-button" onClick={stakeAmount}>
-          Stake
-        </button>
-      </div>
-      {validationError && (
-        <div className="staking__error">{validationError.message}</div>
-      )}
-      </>
+          <CurrencyInput
+            id="input-example"
+            name="input-name"
+            placeholder="How much do you want to contribute"
+            value={amount}
+            decimalsLimit={18}
+            suffix=" ETH"
+            onValueChange={(value, name) => setAmount(value!)}
+          />
+          <div className="staking__button">
+            <button className="good-button" onClick={stakeAmount}>
+              Stake
+            </button>
+          </div>
+          {validationError && (
+            <div className="staking__error">{validationError.message}</div>
+          )}
+        </>
       ) : (
-        <div className='staking__success'>
+        <div className="staking__success">
           <h2>Successful staking!</h2>
-          <h4>Your Staking will keep getting closer to Institutions and Society.</h4>
-          <button className='good-button' onClick={newStake}>New Staking</button>
+          <h4>Your staking will make a difference to our society</h4>
+          <button className="good-button" onClick={newStake}>
+            New Staking
+          </button>
         </div>
       )}
     </div>
