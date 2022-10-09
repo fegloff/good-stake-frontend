@@ -6,3 +6,5 @@ export const truncateAddressString = (address: string, num = 12) => {
   const last = address.slice(-num);
   return `${first}...${last}`;
 };
+
+

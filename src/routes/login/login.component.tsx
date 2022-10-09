@@ -6,8 +6,11 @@ import { connectors } from "../../utils/web3/connectors";
 import "./login.styles.scss";
 import FullLogo from "../../components/full-logo/full-logo.component";
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solid } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
+import { IoAccessibilityOutline  } from "react-icons/io5";
+import { TbHeartHandshake  } from "react-icons/tb";
+
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { solid } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
 import { useWeb3React } from "@web3-react/core";
 
 type LoginButtonProps = {
@@ -61,15 +64,17 @@ const Login = () => {
             <h2>How do you want to participate?</h2>
             <div className="login__wallet--buttons">
               <LoginButton
-                children={<FontAwesomeIcon icon={solid("person")} />}
+                //children={<FontAwesomeIcon icon={solid("person")} />}
+                children={<IoAccessibilityOutline />}
                 text="As Human"
                 to="good"
                 setTo={setTo}
               />
               <LoginButton
-                children={
-                  <FontAwesomeIcon icon={solid("hands-holding-circle")} />
-                }
+              children={<TbHeartHandshake />}
+                // children={
+                //   <FontAwesomeIcon icon={solid("hands-holding-circle")} />
+                // }
                 text="As Staker"
                 to="stake"
                 setTo={setTo}
