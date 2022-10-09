@@ -11,7 +11,7 @@ export type receiptType = {
   blockNumber?: number;
   contractAddress?: string;
   cumulativeGasUsed?: number;
-  events?: any
+  events?: any;
   from?: string;
   gasUsed?: number;
   logsBloom?: string;
@@ -20,59 +20,71 @@ export type receiptType = {
   transactionHash?: string;
   transactionIndex?: number;
   errorMessage?: string;
-}
+};
 
 type validationErrorType = {
-  code : string; // "INSUFFICIENT_FUNDS"
-  error? : any;
-  method? : string; // "estimateGas"
+  code: string; // "INSUFFICIENT_FUNDS"
+  error?: any;
+  method?: string; // "estimateGas"
   reason?: string; //"insufficient funds for intrinsic transaction cost"
-  transaction? : any;
-  message? : string;
-  stack? : string; 
-}
+  transaction?: any;
+  message?: string;
+  stack?: string;
+};
 
 const Staking = () => {
-  const [amount, setAmount] = useState('');
-  const { account } = useWeb3React();
-  const [validationError, setValidationError] = useState<validationErrorType>({ code: ''});
-  const [result, setResult] = useState<receiptType>({
-    status: true,
-    transactionHash: "",
-    blockHash: "",
-    errorMessage : ""
+  const [amount, setAmount] = useState("");
+  const [validationError, setValidationError] = useState<validationErrorType>({
+    code: "",
   });
-
-  const stakeAmount = async () => {
-    await stake(account,amount,setResult,setValidationError);
-  }
+  const [result, setResult] = useState(false);
+  const { account } = useWeb3React();
   
-  console.log('VALUE',amount);
-  console.log('YAHUUA',{result},{validationError});
+  const stakeAmount = async () => {
+    await stake(account, amount, setResult, setValidationError);
+  };
+
+  const newStake = () => {
+    setAmount('');
+    setResult(false);
+  }
 
   useEffect(() => {
     if (!validationError.code && result) {
-      console.log('hola');
+      console.log("hola");
     }
-  }, [result,validationError]);
-
+  }, [result, validationError]);
 
   return (
     <div className="staking">
-      <CurrencyInput
+      {!result ? (
+        <>
+        <CurrencyInput
         id="input-example"
         name="input-name"
         placeholder="How much do you want to contribute"
         value={amount}
         //defaultValue={1000}
         decimalsLimit={18}
-        suffix=' ETH'
+        suffix=" ETH"
         onValueChange={(value, name) => setAmount(value!)}
       />
       <div className="staking__button">
-        <button className="good-button" onClick={stakeAmount}>Stake</button>
+        <button className="good-button" onClick={stakeAmount}>
+          Stake
+        </button>
       </div>
-      {validationError && <div className="staking__error">{validationError.message}</div>}
+      {validationError && (
+        <div className="staking__error">{validationError.message}</div>
+      )}
+      </>
+      ) : (
+        <div className='staking__success'>
+          <h2>Success!</h2>
+          <h4>Your stake will keep helping Society achieve its goals</h4>
+          <button className='good-button' onClick={newStake}>Stake new amount</button>
+        </div>
+      )}
     </div>
   );
 };

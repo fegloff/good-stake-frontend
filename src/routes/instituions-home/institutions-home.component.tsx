@@ -4,14 +4,14 @@ import FullLogo from "../../components/full-logo/full-logo.component";
 import Staking from "../../components/staking/staking.component";
 import { truncateAddressString } from "../../utils/utils";
 
-import './home.styles.scss';
+import './institutions-home.styles.scss';
 
 const InstitutionsHome = () => {
   const { account } = useWeb3React();
   
   return (
-    <div className='home'>
-      <div className='home__content main-container'>
+    <div className='institutions-home'>
+      <div className='institutions-home__content main-container'>
         <FullLogo />
         <h2>Welcome</h2>
         <h4>Your contribution is part of the growth of our Society</h4>
